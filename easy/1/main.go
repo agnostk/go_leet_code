@@ -41,13 +41,13 @@ func main() {
 }
 
 func twoSum(nums []int, target int) []int {
-	hashSet := make(map[int]int)
+	hashSet := make(map[int]uint16)
 	for i := 0; i < len(nums); i++ {
 		complement := target - nums[i]
 		if idx, ok := hashSet[complement]; ok {
-			return []int{idx, i}
+			return []int{int(idx), i}
 		} else {
-			hashSet[nums[i]] = i
+			hashSet[nums[i]] = uint16(i)
 		}
 	}
 	return []int{0}
