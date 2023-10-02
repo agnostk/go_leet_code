@@ -25,7 +25,7 @@ func main() {
 }
 
 func containsDuplicate(nums []int) bool {
-	var set map[int]bool = make(map[int]bool)
+	set := make(map[int]bool)
 	for i := 0; i < len(nums); i++ {
 		if !set[nums[i]] {
 			set[nums[i]] = true
