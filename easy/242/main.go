@@ -2,25 +2,39 @@ package main
 
 import "github.com/agnostk/go_leet_code/tester"
 
+type ArgsType struct {
+	s string
+	t string
+}
+
 func main() {
 	testSuite := tester.TestSuite{
 		Tests: map[int]tester.TestCase{
 			1: {
-				Args:     []string{"anagram", "nagaram"},
+				Args: ArgsType{
+					s: "anagram",
+					t: "nagaram",
+				},
 				Expected: true,
 			},
 			2: {
-				Args:     []string{"rat", "car"},
+				Args: ArgsType{
+					s: "rat",
+					t: "car",
+				},
 				Expected: false,
 			},
 			3: {
-				Args:     []string{"a", "ab"},
+				Args: ArgsType{
+					s: "a",
+					t: "ab",
+				},
 				Expected: false,
 			},
 		},
 	}
 	tester.RunTestSuite(testSuite, func(i interface{}) interface{} {
-		return isAnagram(i.([]string)[0], i.([]string)[1])
+		return isAnagram(i.(ArgsType).s, i.(ArgsType).t)
 	})
 }
 
